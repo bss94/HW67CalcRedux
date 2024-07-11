@@ -14,7 +14,7 @@ const Calculator = () => {
 
         <Col/>
         <Col sm={3}>
-          <h1 className="text-end border border-dark p-2">{calculatorValue ? calculatorValue : "0"}</h1>
+          <h1 className="text-end border border-dark p-2 overflow-scroll">{calculatorValue ? calculatorValue : "0"}</h1>
           <Row className="mb-3">
             <Col>
               <Button className="btn-danger w-100" onClick={() => dispatch(reset())}>C</Button>
@@ -23,10 +23,8 @@ const Calculator = () => {
               <Button className="btn-warning w-100" onClick={() => dispatch(remove())}>Ce</Button>
             </Col>
             <Col>
-              <Button className="btn-light btn-outline-success w-100" onClick={() => dispatch(add("("))}>(</Button>
             </Col>
             <Col>
-              <Button className="btn-light btn-outline-success w-100" onClick={() => dispatch(add(")"))}>)</Button>
             </Col>
           </Row>
           <Row className="mb-3">
@@ -79,7 +77,6 @@ const Calculator = () => {
               <Button className="btn-light btn-outline-success w-100" onClick={() => dispatch(add("0"))}>0</Button>
             </Col>
             <Col>
-              <Button className="btn-light btn-outline-success w-100" onClick={() => dispatch(add("."))}>.</Button>
             </Col>
             <Col>
               <Button className="btn-light btn-outline-success w-100" onClick={() => dispatch(add("-"))}>-</Button>
