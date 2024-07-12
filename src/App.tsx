@@ -1,11 +1,8 @@
 import Calculator from './containers/Calculator/Calculator';
 
-const App = () => {
-
-  return (
+const App = () => (
   <>
-<Calculator/>
+    <Calculator/>
   </>
-)};
-
-export default App
+);
+export default App;

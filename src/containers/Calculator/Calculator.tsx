@@ -8,13 +8,12 @@ const Calculator = () => {
   const calculatorValue = useSelector((state: RootState) => state.calculator.value);
   const dispatch = useDispatch();
   return (
-    <Container>
-
+    <Container className="mt-5">
       <Row>
-
         <Col/>
-        <Col sm={3}>
-          <h1 className="text-end border border-dark p-2 overflow-scroll">{calculatorValue ? calculatorValue : "0"}</h1>
+        <Col sm={6} className="mt-5">
+          <h1
+            className="text-end border border-dark p-2 overflow-x-scroll">{calculatorValue ? `${calculatorValue}|` : "|"}</h1>
           <Row className="mb-3">
             <Col>
               <Button className="btn-danger w-100" onClick={() => dispatch(reset())}>C</Button>
@@ -22,10 +21,8 @@ const Calculator = () => {
             <Col>
               <Button className="btn-warning w-100" onClick={() => dispatch(remove())}>Ce</Button>
             </Col>
-            <Col>
-            </Col>
-            <Col>
-            </Col>
+            <Col/>
+            <Col/>
           </Row>
           <Row className="mb-3">
             <Col>
@@ -76,8 +73,7 @@ const Calculator = () => {
             <Col>
               <Button className="btn-light btn-outline-success w-100" onClick={() => dispatch(add("0"))}>0</Button>
             </Col>
-            <Col>
-            </Col>
+            <Col/>
             <Col>
               <Button className="btn-light btn-outline-success w-100" onClick={() => dispatch(add("-"))}>-</Button>
             </Col>

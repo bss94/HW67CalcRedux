@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {toast} from 'react-toastify';
 
 interface CalculatorSlice {
   value: string;
@@ -18,7 +19,6 @@ export const calculatorSlice = createSlice({
       state.value = state.value.slice(0, -1);
     },
     add: (state, action: PayloadAction<string>) => {
-
       if (
         "*+/-".includes(action.payload) &&
         "*+/-".includes(state.value[state.value.length - 1])) {
@@ -31,7 +31,17 @@ export const calculatorSlice = createSlice({
       }
     },
     result: (state) => {
-      state.value = String(eval(state.value));
+      try {
+        if (!isFinite(eval(state.value))) {
+          toast.success('result is infinity or NaN, set state to Initial');
+          state.value = '';
+        } else {
+          state.value = String(eval(state.value));
+        }
+      } catch (e) {
+        toast.error(e.message);
+        state.value = '';
+      }
     }
   },
 });
